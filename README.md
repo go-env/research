@@ -18,14 +18,14 @@ Primary goals of the project are:
 
 With next ideas in mind:
 
-1. When you need freeze packages you set up it in your go-code explicitly and don't use external
-  metadata. You see the code and understand that you code uses without any magic tools.
+1. When you need to freeze packages you set up it in your go-code explicitly and don't use
+  external metadata. You see the code and understand that you code uses without any magic tools.
 
   So preferable way to keep package versions is explicitly set them in `import` clause.
-  If your need to change version of used package your update it just in the code
-  with help of refactor tools or manually.
+  If you need change version of used package you update it just in the code
+  with a help of refactor tools or manually.
 
-2. A a way to use freezed package version without code refactoring also may be right way
+2. Usage of frozen package version without code refactoring also may be right way
   in some cases. So we need solution for both cases: define version in `import` clause or
   provide some metadata about package versions for use with unchangable program code.
 
