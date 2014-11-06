@@ -21,6 +21,7 @@ Base features
 Аналог go get:
 
     gopkg github.com/gorilla/mux → $GOPATH/src/github.com/gorilla/mux
+
     build to $GOPATH/pkg/$ARCH/github.com/gorilla/mux.a
     import "github.com/gorilla/mux"
 
@@ -33,6 +34,7 @@ Base features
 Забрать версию для коммита:
 
     gopkg -c a1b2c3d4e5f6 github.com/gorilla/mux → $GOPATH/src/github.com/gorilla/mux-a1b2c3d4e5f6
+
     build to $GOPATH/pkg/$ARCH/github.com/gorilla/mux.a1b2c3d4e5f6.a
     import mux "github.com/gorilla/mux.a1b2c3d4e5f6"
 
@@ -43,6 +45,7 @@ Base features
 Или для тега:
 
     gopkg -t rel-1.2 github.com/gorilla/mux → $GOPATH/src/github.com/gorilla/mux.t.rel-1.2
+
     build to $GOPATH/pkg/$ARCH/github.com/gorilla/mux.t.rel-1.2.a
     import mux "github.com/gorilla/mux.t.rel-1.2"
 
@@ -59,6 +62,7 @@ vcs. Поэтому `gogkg -u` повторно заберёт из репози
 Для локального форка пакета можно забрать его под localhost:
 
     gopkg -l github.com/gorilla/mux → $GOPATH/src/localhost/gorilla/mux
+
     build to $GOPATH/pkg/$ARCH/localhost/gorilla/mux.a
     import "localhost/gorilla/mux"
 
@@ -70,13 +74,17 @@ $GOPATH содержащих часть пакетов из общего реп�
 
 Пакеты фиксированных версий здесь также поддерживаются `go get`, например:
 
-    gopkg -l -t rel-1.2 github.com/gorilla/mux → $GOPATH/src/localhost/t:rel-1.2/gorilla/mux
-    import "localhost/gorilla/mux-t-rel-1.2"
-    go get -u localhost/gorilla/mux-t-rel-1.2
+    gopkg -l -t rel-1.2 github.com/gorilla/mux → $GOPATH/src/localhost/gorilla/mux.t.rel-1.2
 
-    gopkg -l -b develop github.com/gorilla/mux → $GOPATH/src/localhost/gorilla/mux-b-:develop
-    import "localhost/gorilla/mux-b-develop"
-    go get -u localhost/gorilla/mux-b-develop
+    build to $GOPATH/pkg/$ARCH/localhost/gorilla/mux.t.rel-1.2.a
+    import "localhost/gorilla/mux.t.rel-1.2"
+    go get -u localhost/gorilla/mux.t.rel-1.2
+
+    gopkg -l -b develop github.com/gorilla/mux → $GOPATH/src/localhost/gorilla/mux.b.develop
+
+    build to $GOPATH/pkg/$ARCH/localhost/gorilla/mux.b.develop.a
+    import "localhost/gorilla/mux.b.develop"
+    go get -u localhost/gorilla/mux.b.develop
 
 Установка под кастомный домен
 -------------------------------------
@@ -86,6 +94,7 @@ $GOPATH содержащих часть пакетов из общего реп�
 
     gopkg domain example.com
     gopkg -d github.com/gorilla/mux → $GOPATH/src/example.com/gorilla/mux
+
     import "example.com/gorilla/mux"
 
 Далее эти пакеты могут забираться с удалённых машин (публикация через демон `gopkgd`):
@@ -94,10 +103,10 @@ $GOPATH содержащих часть пакетов из общего реп�
 
 Пример для ветки:
 
-    gopkg -d -b develop github.com/gorilla/mux → $GOPATH/src/example.com/gorilla/mux-b-develop
+    gopkg -d -b develop github.com/gorilla/mux → $GOPATH/src/example.com/gorilla/mux.b.develop
 
-    go get example.com/gorilla/mux-b-develop
-    import "example.com/gorilla/mux-b-develop"
+    go get example.com/gorilla/mux.b.develop
+    import "example.com/gorilla/mux.b.develop"
 
 Установка зависимостей
 ---------------------------
@@ -114,8 +123,8 @@ upstream. Можно зафиксировать версии зависимос�
 пакета mux и пакет mux требует как зависимость пакет sample. В свою очередь для
 sample последним является коммит 1234 и он хранится на launchpad.net (под `bzr`):
 
-    gopkg -F github.com/gorilla/mux → $GOPATH/src/github.com/gorilla/mux-a1b2c3d4e5f6
-       → $GOPATH/src/launchpad.net/sample-1234
+    gopkg -F github.com/gorilla/mux → $GOPATH/src/github.com/gorilla/mux.a1b2c3d4e5f6
+       → $GOPATH/src/launchpad.net/sample.1234
 
 Обновление пакета
 ---------------------
@@ -146,10 +155,10 @@ sample последним является коммит 1234 и он храни�
 Выдаст пакеты совпадающие по имени, при наличии фиксированных версий
 выведет их список в виде, пригодном для оператора `import`:
 
-    github.com/gorilla/mux
-    github.com/gorilla/mux-b-develop
-    github.com/gorilla/mux-t-rel-1.1
-    github.com/gorilla/mux-t-rel-1.2
+    github.com/gorilla/mux             branches: master, develop; tags: rel-1.1, rel-1.2
+    github.com/gorilla/mux.b.develop
+    github.com/gorilla/mux.t.rel-1.1
+    github.com/gorilla/mux.t.rel-1.2
 
 Можно указывать домен через -d
 
@@ -168,7 +177,7 @@ sample последним является коммит 1234 и он храни�
 
 или
 
-    gopkg link github.com/c:a1b2c3d4e5f6/gorilla/mux
+    gopkg link github.com/gorilla/mux.a1b2c3d4e5f6
 
 установит связь (файловые ссылки) upstream-версии github.com/gorilla/mux с её
 коммитом a1b2c3d4e5f6. Далее при импорте
@@ -184,7 +193,7 @@ sample последним является коммит 1234 и он храни�
 
 покажет есть ли привязка этого пакета к конкретным версиям:
 
-    github.com/gorilla/mux → github.com/gorilla/mux-a1b2c3d4e5f6
+    github.com/gorilla/mux → github.com/gorilla/mux.a1b2c3d4e5f6
 
 Кастомное окружение
 ------------------------
