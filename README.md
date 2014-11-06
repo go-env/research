@@ -38,3 +38,5 @@ This is not a webservice, this is local tool for maintain your packages database
 different build environments.
 
 Inspired by gom, godep, godeps, gopkg.cc, gopkg.in. Project is on early stage of development.
+
+Link to proposed CLI (in Russian yet): [Proposed CLI features](CLI.ru.md).
