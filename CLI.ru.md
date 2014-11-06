@@ -233,14 +233,3 @@ TODO описать подробнее
 Утилита `gopkg` и библиотека `gopkgd`. Утилита либо поднимает gopkgd по запросу,
 для разовых операций, либо, если находит работающий в виде демона экземпляр,
 использует его.
-
-------------
-
-
-#9032
-
-Doing "go get github.com/foo/bar" will always check out
-master (assuming no tags are set) even when the default
-branch in github is explicitly set to something else.
-
-A possible fix might be to leave vcsGit.tagSyncDefault nil.
