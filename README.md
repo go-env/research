@@ -30,9 +30,9 @@ Planned features are:
  - freeze package versions by selected VCS branches, tags and commits
  - change imports in code to consistent versions
  - detect version incompatibilities
-  - based on VCS tags and commits
-  - based on package exported symbols changes
-  - based on package content hash
+      - based on VCS tags and commits
+      - based on package exported symbols changes
+      - based on package content hash
 * vendoring:
  - maintain per project environments based on GOPATH
  - save package dependencies for a project
