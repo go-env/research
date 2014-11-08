@@ -15,6 +15,13 @@ and manage packages and environments fast and clean.
 
 Primary goals of GET project are:
 
+* have reproducible builds
+* fast switching between package trees for different projects
+* identify conflicst with package versions
+* offer different ways for different needs (vendoring vs version locking)
+
+Planned features are:
+
 * package management:
  - install, update, remove packages
  - fast search on indexed base of installed packages
@@ -29,6 +36,7 @@ Primary goals of GET project are:
 * teamwork:
  - import proxy
  - publish own repositories
+ - expose only selected versions
  - not need third party webservices for proxy and publishing
 * compatibility with default go toolset:
  - work with all VCS supported by default tools VCS: git, hg, bzr, svn
