@@ -24,11 +24,13 @@ Planned features are:
 
 * package management:
  - install, update, remove packages
+ - install and remove dependencies of installed package
  - fast search on indexed base of installed packages
 * revision locking:
  - freeze package versions by selected VCS branches, tags and commits
  - change imports in code to consistent versions
  - report about version incompatibilities
+ - versions based on package content hash
 * vendoring:
  - maintain per project environments based on GOPATH
  - save package dependencies for a project
