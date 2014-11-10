@@ -49,7 +49,11 @@ Planned features are:
 Status of development
 ---------------------
 
-Just build prototypes of CLI.
+Just build prototypes of CLI. These are:
+
+* gopkg — package manager CLI
+* goenv — environments manager CLI
+* gosrc — maintain imports CLI
 
 Other similar solutions for Go
 ------------------------------
