@@ -19,6 +19,7 @@ Primary goals of GET project are:
 * fast switching between package trees for different projects
 * identify conflicst with package versions
 * offer different ways for different needs (vendoring vs version locking)
+* make lite utilities which may be used independently each from other
 
 Planned features are:
 
